@@ -1,0 +1,80 @@
+{
+  "limitations": [
+    "cannot be used as a point-in-time dynamic ETA evaluation because it has no timestamp",
+    "the group split is by train ID, not by date",
+    "use as cold-start prior only; promote live snapshot model after collection",
+    "transition metrics use the previous station delay as an upstream online feature",
+    "selective accuracy is reported with its coverage; it is not an all-trip accuracy claim"
+  ],
+  "metrics": {
+    "global_median_baseline": {
+      "mae_minutes": 42.27649706724867,
+      "rmse_minutes": 92.49397890795122,
+      "within_10_minutes": 0.2888646387486928,
+      "within_15_minutes": 0.4365025235302142,
+      "within_5_minutes": 0.14900195516755332
+    },
+    "lightgbm_90_percent_interval": {
+      "half_width_minutes": 65.64787175490466,
+      "test_coverage": 0.8756877188196244
+    },
+    "lightgbm_95_percent_interval": {
+      "half_width_minutes": 107.43903617037233,
+      "test_coverage": 0.9238394034465511
+    },
+    "lightgbm_l1": {
+      "mae_minutes": 35.849047348162536,
+      "rmse_minutes": 83.28771022227427,
+      "within_10_minutes": 0.3922157049970445,
+      "within_15_minutes": 0.5127540581093984,
+      "within_5_minutes": 0.21925158004819714
+    },
+    "transition_90_percent_interval": {
+      "half_width_minutes": 16.125375094839086,
+      "test_coverage": 0.887133721485158
+    },
+    "transition_baseline_carry_forward": {
+      "mae_minutes": 9.004581464159587,
+      "rmse_minutes": 20.53032918246942,
+      "within_10_minutes": 0.7557984155769781,
+      "within_15_minutes": 0.8429416817791352,
+      "within_5_minutes": 0.5809869237377112
+    },
+    "transition_lightgbm_l1": {
+      "mae_minutes": 7.531271124017687,
+      "rmse_minutes": 19.226611536520856,
+      "within_10_minutes": 0.7997518373580224,
+      "within_15_minutes": 0.8752028252362317,
+      "within_5_minutes": 0.628233272883459
+    },
+    "transition_lightgbm_l1_selective": {
+      "coverage": 0.803044764722726,
+      "mae_minutes": 5.684560470452708,
+      "minimum_validation_accuracy": 0.915,
+      "selection_rule": "previous delay <= 150 min and previous segment change <= 20 min",
+      "validation_coverage": 0.8318543684397343,
+      "validation_within_15_minutes": 0.91935385553185,
+      "within_15_minutes": 0.9103821239674333
+    },
+    "validation_lightgbm_l1": {
+      "mae_minutes": 32.397781262991295,
+      "rmse_minutes": 290.2864816542099,
+      "within_10_minutes": 0.40370905587668593,
+      "within_15_minutes": 0.5258188824662813,
+      "within_5_minutes": 0.23126204238921003
+    }
+  },
+  "rows": {
+    "fit": 97643,
+    "test": 21993,
+    "total": 140396,
+    "validation": 20760
+  },
+  "source_type": "public station-level delay table; no timestamps",
+  "target": "observed station delay minutes",
+  "train_groups": {
+    "fit": 4847,
+    "test": 1039,
+    "validation": 1039
+  }
+}
