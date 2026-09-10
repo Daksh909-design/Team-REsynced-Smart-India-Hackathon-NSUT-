@@ -1,0 +1,37 @@
+`text
+RailRadar Live Running Data
+          +
+Open-Meteo Weather Data
+          │
+          ▼
+Live Data Connector
+          │
+          ▼
+Immutable JSON Snapshots
+          │
+          ▼
+Point-in-Time Feature Builder
+          │
+          ├── Route and schedule features
+          ├── Current delay and progress
+          ├── Historical station/train delay
+          ├── Weather features
+          └── Time and spatial features
+          │
+          ▼
+Machine-Learning Forecasting Layer
+          │
+          ├── Scikit-learn baseline
+          ├── LightGBM delay model
+          ├── Transition delay model
+          └── Prediction interval calibration
+          │
+          ▼
+FastAPI ETA Service
+          │
+          ├── GET /health
+          ├── GET /docs
+          └── GET /v1/eta/{train_number}
+          │
+          ▼
+RailPulse Web Frontend
