@@ -1,0 +1,10 @@
+FastAPI
+Uvicorn
+scikit-learn
+LightGBM
+pandas
+NumPy
+Joblib
+HTTPX
+python-dotenv
+pytest and Ruff
